@@ -149,6 +149,25 @@
         }
 
     </style>
+    <script>
+    const video = document.getElementById('demo-video');
+    const playButton = document.getElementById('play-button');
+    const videoOverlay = document.querySelector('.video-overlay');
+
+    playButton.addEventListener('click', () => {
+        if (video.paused) {
+            video.play();
+            videoOverlay.style.opacity = '0';
+        } else {
+            video.pause();
+            videoOverlay.style.opacity = '1';
+        }
+    });
+
+    video.addEventListener('ended', () => {
+        videoOverlay.style.opacity = '1';
+    });
+    </script>
 </head>
 <body>
     <header>
